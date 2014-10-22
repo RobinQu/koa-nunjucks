@@ -1,0 +1,28 @@
+{
+  "name": "koa-nunjucks",
+  "version": "0.0.1",
+  "description": "Nunjunks rendering middleware for koa",
+  "main": "index.js",
+  "scripts": {
+    "test": "./bin/node_modules/mocha/bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RobinQu/koa-nunjucks.git"
+  },
+  "keywords": [
+    "koa",
+    "nunjucks",
+    "rendering"
+  ],
+  "author": "Robin Qu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RobinQu/koa-nunjucks/issues"
+  },
+  "homepage": "https://github.com/RobinQu/koa-nunjucks",
+  "devDependencies": {
+    "mocha": "^2.0.0",
+    "nunjucks": "^1.1.0"
+  }
+}
