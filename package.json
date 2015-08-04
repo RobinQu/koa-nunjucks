@@ -1,6 +1,6 @@
 {
   "name": "koa-nunjucks",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Nunjunks rendering middleware for koa",
   "main": "index.js",
   "scripts": {
