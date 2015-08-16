@@ -1,12 +1,14 @@
 var nunjucks = require("nunjucks");
 var _ = require('lodash');
+var Loader = require('./loader');
 
 var NJ = function(options) {
   if(!(this instanceof NJ)) {
     return (new NJ(options)).middleware();
   }
-  this.extname = options.extname || '.tpl';
-  this.nj = nunjucks.configure(options.views, options.nunjucks);
+  var extname = options.extname || '.tpl';
+  var watch = !(process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'prepub');
+  this.nj = new nunjucks.Environment([new Loader(extname, options.views, watch)], options.nunjucks);
 };
 
 NJ.prototype.createRender = function () {
@@ -16,7 +18,7 @@ NJ.prototype.createRender = function () {
     return function (callback) {
       callback = callback || function () {};
       var viewData = _.extend({}, ctx.state, ctx.locals || {}, data);
-      self.nj.render(view + self.extname, viewData, function (e, res) {
+      self.nj.render(view, viewData, function (e, res) {
         if(e) {
           return callback(e);
         }
