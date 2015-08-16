@@ -1,4 +1,5 @@
 var nunjucks = require("nunjucks");
+var _ = require('lodash');
 
 var NJ = function(options) {
   if(!(this instanceof NJ)) {
@@ -14,7 +15,8 @@ NJ.prototype.createRender = function () {
     var ctx = this;
     return function (callback) {
       callback = callback || function () {};
-      self.nj.render(view + self.extname, data || {}, function (e, res) {
+      var viewData = _.extend({}, ctx.state, ctx.locals || {}, data);
+      self.nj.render(view + self.extname, viewData, function (e, res) {
         if(e) {
           return callback(e);
         }

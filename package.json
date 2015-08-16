@@ -1,6 +1,6 @@
 {
   "name": "koa-nunjucks",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Nunjunks rendering middleware for koa",
   "main": "index.js",
   "scripts": {
@@ -24,5 +24,8 @@
   "devDependencies": {
     "mocha": "^2.0.0",
     "nunjucks": "^1.1.0"
+  },
+  "dependencies": {
+    "lodash": "^3.10.1"
   }
 }
