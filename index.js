@@ -7,8 +7,8 @@ var NJ = function(options) {
     return (new NJ(options)).middleware();
   }
   var extname = options.extname || '.tpl';
-  var watch = !(process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'prepub');
-  this.nj = new nunjucks.Environment([new Loader(extname, options.views, watch)], options.nunjucks);
+  var noWatch = process.env.NODE_ENV === 'production';
+  this.nj = new nunjucks.Environment([new Loader(extname, options.views, noWatch)], options.nunjucks);
 };
 
 NJ.prototype.createRender = function () {
